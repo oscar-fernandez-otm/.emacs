@@ -9,6 +9,8 @@
 (global-undo-tree-mode)
 (global-set-key (kbd "C--") 'undo-tree-undo)
 
+(global-set-key (kbd "C-<return>") (kbd "C-e C-j"))
+(global-set-key (kbd "C-S-<return>") (kbd "C-a <return> C-p"))
 
 (server-start)
 (load-theme 'zenburn)
