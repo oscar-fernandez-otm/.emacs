@@ -29,3 +29,8 @@
 
 (server-start)
 (load-theme 'zenburn t)
+
+(eval-after-load 'auto-complete-autoloads
+  '(progn
+     (require 'auto-complete-config)
+     (ac-config-default)))
