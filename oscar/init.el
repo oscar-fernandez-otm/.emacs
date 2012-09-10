@@ -28,4 +28,4 @@
 (global-set-key (kbd "C-x f") 'ido-recentf-open)
 
 (server-start)
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
