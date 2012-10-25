@@ -6,3 +6,6 @@
           (lambda ()
             (define-key nrepl-interaction-mode-map (kbd "C-,")
               'nrepl-complete)))
+
+(add-hook 'nrepl-interaction-mode-hook
+  'nrepl-turn-on-eldoc-mode)
