@@ -4,6 +4,7 @@
 
 (add-hook 'nrepl-mode-hook
           (lambda ()
+            (setq nrepl-connected-hook (reverse nrepl-connected-hook)) ;; Temporary hack to solve: https://github.com/kingtim/nrepl.el/issues/168
             (define-key nrepl-interaction-mode-map (kbd "C-,")
               'nrepl-complete)))
 
