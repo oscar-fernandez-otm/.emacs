@@ -51,4 +51,26 @@
 
   ;; iy-go-to-char
   (global-set-key (kbd "C-c C-f") 'iy-go-to-char)
-  (global-set-key (kbd "C-c C-b") 'iy-go-to-char-backward))
+  (global-set-key (kbd "C-c C-b") 'iy-go-to-char-backward)
+
+  ;; chords
+  (mapcar (lambda (chord)
+            (key-chord-define-global (elt chord 0)
+                                     (elt chord 1)))
+          [["fj" iy-go-to-char]
+           ["fh" iy-go-to-char-backward]
+           ["jw" mark-word]
+           ["jz" repeat]
+           ["df" backward-word]
+           ["fg" forward-word]
+           ["cv" backward-char]
+           ["vb" forward-char]
+           ["kd" kill-word]
+           ["ka" move-beginning-of-line]
+           ["ke" move-end-of-line]
+           ["kw" kill-ring-save]
+           ["ks" ido-switch-buffer]
+           ["js" ido-switch-buffer-other-window]
+           ["jr" query-replace-regexp]
+           ["jx" smex]])
+  (key-chord-mode 1))
