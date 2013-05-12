@@ -59,6 +59,7 @@
                                      (elt chord 1)))
           [["fj" iy-go-to-char]
            ["fh" iy-go-to-char-backward]
+           ["fk" ace-jump-mode]
            ["jw" mark-word]
            ["jz" repeat]
            ["df" backward-word]
