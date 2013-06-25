@@ -70,7 +70,6 @@
            ["cv" move-beginning-of-line]
            ["vb" move-end-of-line]
            ["kw" kill-ring-save]
-           ["ks" ido-switch-buffer]
            ["js" ido-switch-buffer-other-window]
            ["jr" query-replace-regexp]
            ["jx" smex]])
