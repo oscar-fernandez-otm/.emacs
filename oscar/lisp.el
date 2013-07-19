@@ -5,7 +5,7 @@
 (add-hook 'nrepl-mode-hook
           (lambda ()
             (define-key nrepl-interaction-mode-map (kbd "C-,")
-              'nrepl-complete)))
+              'nrepl-indent-and-complete-symbol)))
 
 
 (add-hook 'nrepl-mode-hook 'paredit-mode)
