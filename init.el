@@ -14,3 +14,4 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+(put 'upcase-region 'disabled nil)
