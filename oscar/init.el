@@ -67,7 +67,7 @@
            ["hj" backward-char]
            ["jk" forward-char]
            ["kd" kill-word]
-           ["cv" move-beginning-of-line]
+           ["cv" back-to-indentation]
            ["vb" move-end-of-line]
            ["kw" kill-ring-save]
            ["f," ido-switch-buffer-other-window]
