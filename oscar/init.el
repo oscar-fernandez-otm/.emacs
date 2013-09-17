@@ -73,5 +73,6 @@
            ["f," ido-switch-buffer-other-window]
            ["f." ido-switch-buffer]
            ["jr" query-replace-regexp]
-           ["jx" smex]])
+           ["jx" smex]
+           ["jq" join-line]])
   (key-chord-mode 1))
