@@ -9,6 +9,25 @@
       (message "Opening file...")
     (message "Aborting")))
 
+
+(defun last-term-buffer (l)
+  "Return most recently used term buffer."
+  (when l
+    (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+        (car l)
+      (last-term-buffer (cdr l)))))
+
+(defun get-term (arg)
+  "Switch to the term buffer last used in another window, or create a new one if none exists, or if the current buffer is already a term.
+If you want to switch in the same window pass a prefix argument."
+  (interactive "P")
+  (let ((b (last-term-buffer (buffer-list))))
+    (if (or (not b) (eq 'term-mode major-mode))
+        (multi-term)
+      (if arg
+          (switch-to-buffer b)
+        (switch-to-buffer-other-window b)))))
+
 (defun after-package-initializations-customizations ()
   (load-theme 'zenburn t)
 
@@ -52,6 +71,13 @@
   ;; iy-go-to-char
   (global-set-key (kbd "C-c C-f") 'iy-go-to-char)
   (global-set-key (kbd "C-c C-b") 'iy-go-to-char-backward)
+
+  ;; multiterm-configuration
+  (setq multi-term-program "/bin/bash")
+  (setq multi-term-dedicated-select-after-open-p t)
+  (setq multi-term-dedicated-skip-other-window-p t)
+  (global-set-key (kbd "C-c t") 'get-term)
+  (global-set-key (kbd "C-c d") 'multi-term-dedicated-toggle)
 
   ;; chords
   (mapcar (lambda (chord)
