@@ -41,9 +41,9 @@
 
   ;; multiple cursors
   (global-set-key (kbd "C-c C-m") 'mc/edit-lines)
-  (global-set-key (kbd "C-:") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-;") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-:") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-;") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-:") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-;") 'mc/mark-all-like-this)
 
   ;; expand region
   (global-set-key (kbd "M-S-<up>") 'er/expand-region)
