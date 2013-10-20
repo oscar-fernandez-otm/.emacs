@@ -79,6 +79,11 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-c t") 'get-term)
   (global-set-key (kbd "C-c d") 'multi-term-dedicated-toggle)
 
+  ;; ag configuration
+  (global-set-key (kbd "C-c a r") 'ag-regexp)
+  (global-set-key (kbd "C-c a p") 'ag-project-regexp)
+  
+
   ;; chords
   (mapcar (lambda (chord)
             (key-chord-define-global (elt chord 0)
