@@ -77,7 +77,10 @@ If you want to switch in the same window pass a prefix argument."
   (setq multi-term-dedicated-select-after-open-p t)
   (setq multi-term-dedicated-skip-other-window-p t)
   (global-set-key (kbd "C-c t") 'get-term)
-  (global-set-key (kbd "C-c d") 'multi-term-dedicated-toggle)
+  (global-set-key (kbd "C-c d") (lambda ()
+                                  (interactive)
+                                  (require 'multi-term)
+                                  (multi-term-dedicated-toggle)))
 
   ;; ag configuration
   (global-set-key (kbd "C-c a r") 'ag-regexp)
