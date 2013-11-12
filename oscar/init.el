@@ -33,6 +33,8 @@ If you want to switch in the same window pass a prefix argument."
 
   (global-set-key (kbd "C-.") 'hippie-expand)
 
+  (electric-pair-mode +1)
+
   ;; paredit
   (require 'paredit)
   (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
