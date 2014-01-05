@@ -29,6 +29,7 @@ If you want to switch in the same window pass a prefix argument."
         (switch-to-buffer-other-window b)))))
 
 (defun after-package-initializations-customizations ()
+  (require 'iso-transl)
   (load-theme 'zenburn t)
 
   (global-set-key (kbd "C-.") 'hippie-expand)
