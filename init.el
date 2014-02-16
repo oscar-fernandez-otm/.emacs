@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-ruby starter-kit-js zenburn-theme undo-tree nrepl auto-complete ac-nrepl multiple-cursors expand-region iy-go-to-char key-chord ace-jump-mode multi-term ag)
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-ruby starter-kit-js zenburn-theme undo-tree cider auto-complete ac-nrepl multiple-cursors expand-region iy-go-to-char key-chord ace-jump-mode multi-term ag)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
