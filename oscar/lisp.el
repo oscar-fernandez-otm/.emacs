@@ -2,7 +2,7 @@
 
 (defun lisp-customizations ()
 
-  (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+  (add-to-list 'auto-mode-alist '("\\.clj.\\'" . clojure-mode))
 
   (define-key lisp-mode-shared-map (kbd "C-,") 'lisp-complete-symbol)
 
