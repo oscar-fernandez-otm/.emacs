@@ -32,6 +32,10 @@ If you want to switch in the same window pass a prefix argument."
   (require 'iso-transl)
   (load-theme 'zenburn t)
 
+  ;; disable flyspellmode by default for some modes
+  (dolist (hook '(nxml-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode -1))))
+
   (global-set-key (kbd "C-.") 'hippie-expand)
 
   (electric-pair-mode +1)
