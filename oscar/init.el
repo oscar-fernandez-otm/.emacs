@@ -61,9 +61,9 @@ If you want to switch in the same window pass a prefix argument."
 
   (global-set-key (kbd "C-x f") 'ido-recentf-open)
 
-  ;; auto-complete
-  (require 'auto-complete-config)
-  (ac-config-default)
+  ;; use company mode for autocompletion
+  (global-company-mode)
+  (global-set-key (kbd "C-,") 'company-complete)
 
   ;; multiple cursors
   (global-set-key (kbd "C-c C-m") 'mc/edit-lines)
