@@ -30,6 +30,7 @@ If you want to switch in the same window pass a prefix argument."
 
 (defun after-package-initializations-customizations ()
   (require 'iso-transl)
+  (require 'key-chord)
   (load-theme 'zenburn t)
 
   ;; disable flyspellmode by default for some modes
