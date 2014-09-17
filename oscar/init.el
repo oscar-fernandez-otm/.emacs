@@ -41,6 +41,8 @@ If you want to switch in the same window pass a prefix argument."
 
   (electric-pair-mode +1)
 
+  (projectile-global-mode)
+
   ;; paredit
   (require 'paredit)
   (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
