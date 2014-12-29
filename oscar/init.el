@@ -1,6 +1,6 @@
 (server-start)
 
-(add-hook 'after-init-hook 'after-package-initializations-customizations)
+
 
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to \\[find-file] a recent file"
