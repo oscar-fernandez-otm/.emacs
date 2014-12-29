@@ -53,7 +53,10 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C--") 'undo-tree-undo)
 
   ;; eclipse like jump of line in the middle of it
+  (define-key input-decode-map "\e[13;5u" [(control return)]) ;; some
+  ;; help for decoding sequence sent by the terminal in Linux
   (global-set-key (kbd "C-<return>") (kbd "C-e C-j"))
+  (define-key input-decode-map "\e[13;6u" [(control shift return)])
   (global-set-key (kbd "C-S-<return>") (kbd "C-a <return> C-p"))
 
 
