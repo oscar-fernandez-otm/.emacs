@@ -76,7 +76,7 @@ If you want to switch in the same window pass a prefix argument."
 
   ;; expand region
   (global-set-key (kbd "M-S-<up>") 'er/expand-region)
-  (setq expand-region-contract-fast-key "<down>")
+  (global-set-key (kbd "M-S-<down>") 'er/contract-region)
 
   ;; iy-go-to-char
   (global-set-key (kbd "C-c C-f") 'iy-go-to-char)
