@@ -23,5 +23,7 @@
 
   (add-hook 'cider-mode-hook
             'cider-turn-on-eldoc-mode)
-  
+  (add-hook 'clojure-mode-hook (lambda ()
+                                 (define-key clojure-mode-map (kbd "C-c l") 'align-cljlet)))
+
   (global-set-key (kbd "C-c j") 'custom/jump-to-namespace))
