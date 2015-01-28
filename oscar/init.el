@@ -43,6 +43,8 @@ If you want to switch in the same window pass a prefix argument."
 
   (projectile-global-mode)
 
+  (yas/global-mode 1)
+
   ;; paredit
   (require 'paredit)
   (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
@@ -98,7 +100,7 @@ If you want to switch in the same window pass a prefix argument."
   ;; ag configuration
   (global-set-key (kbd "C-c a r") 'ag-regexp)
   (global-set-key (kbd "C-c a p") 'ag-project-regexp)
-  
+
 
   ;; chords
   (mapcar (lambda (chord)
