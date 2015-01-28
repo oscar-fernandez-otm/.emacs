@@ -1,6 +1,7 @@
 (require 'package)
 
 (add-hook 'after-init-hook 'after-package-initializations-customizations)
+(add-hook 'after-init-hook 'lisp-customizations)
 
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
