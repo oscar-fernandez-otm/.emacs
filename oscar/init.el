@@ -45,6 +45,8 @@ If you want to switch in the same window pass a prefix argument."
 
   (yas/global-mode 1)
 
+  (global-company-mode)
+
   ;; paredit
   (require 'paredit)
   (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
