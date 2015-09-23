@@ -47,6 +47,8 @@ If you want to switch in the same window pass a prefix argument."
 
   (global-company-mode)
 
+  (add-hook 'isearch-update-post-hook 'redraw-display)
+
   ;; paredit
   (require 'paredit)
   (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
