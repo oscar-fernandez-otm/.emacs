@@ -46,6 +46,8 @@ If you want to switch in the same window pass a prefix argument."
   (yas/global-mode 1)
 
   (global-company-mode)
+  (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+  (setq company-idle-delay .5)  
 
   (add-hook 'isearch-update-post-hook 'redraw-display)
 
@@ -80,10 +82,10 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-,") 'company-complete)
 
   ;; multiple cursors
-  (global-set-key (kbd "C-c C-m") 'mc/edit-lines)
+  (global-set-key (kbd "C-c m") 'mc/edit-lines)
   (global-set-key (kbd "C-;") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-:") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-;") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-c ;") 'mc/mark-all-like-this)
 
   ;; expand region
   (global-set-key (kbd "M-S-<up>") 'er/expand-region)
