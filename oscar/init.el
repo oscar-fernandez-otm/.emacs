@@ -47,7 +47,9 @@ If you want to switch in the same window pass a prefix argument."
 
   (global-company-mode)
   (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
-  (setq company-idle-delay .5)  
+  (setq company-idle-delay .5)
+  (with-eval-after-load 'company
+    (company-flx-mode +1))
 
   (add-hook 'isearch-update-post-hook 'redraw-display)
 
