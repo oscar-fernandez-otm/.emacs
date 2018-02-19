@@ -1,6 +1,10 @@
 (server-start)
 
 
+(fset 'remove-validate
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote (":as swaggerOCswagger/OCOC[1;3A" 0 "%d")) arg)))
+
+
 
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to \\[find-file] a recent file"
@@ -31,6 +35,7 @@ If you want to switch in the same window pass a prefix argument."
 (defun after-package-initializations-customizations ()
   (require 'iso-transl)
   (require 'key-chord)
+  (require 'org-trello)
   (load-theme 'zenburn t)
 
   ;; disable flyspellmode by default for some modes
@@ -50,8 +55,6 @@ If you want to switch in the same window pass a prefix argument."
   (setq company-idle-delay .5)
   (with-eval-after-load 'company
     (company-flx-mode +1))
-
-  (add-hook 'isearch-update-post-hook 'redraw-display)
 
   ;; paredit
   (require 'paredit)
@@ -111,6 +114,8 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-c a r") 'ag-regexp)
   (global-set-key (kbd "C-c a p") 'ag-project-regexp)
 
+
+ 
 
   ;; chords
   (mapcar (lambda (chord)
