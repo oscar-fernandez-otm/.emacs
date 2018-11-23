@@ -68,6 +68,11 @@ If you want to switch in the same window pass a prefix argument."
   (global-undo-tree-mode)
   (global-set-key (kbd "C--") 'undo-tree-undo)
 
+  (global-set-key (kbd "S-<up>") 'windmove-up)
+  (global-set-key (kbd "S-<down>") 'windmove-down)
+  (global-set-key (kbd "S-<left>") 'windmove-left)
+  (global-set-key (kbd "S-<right>") 'windmove-right)
+
   ;; eclipse like jump of line in the middle of it
   (define-key input-decode-map "\e[13;5u" [(control return)]) ;; some
   ;; help for decoding sequence sent by the terminal in Linux
