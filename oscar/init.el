@@ -38,6 +38,12 @@ If you want to switch in the same window pass a prefix argument."
   (require 'org-trello)
   (load-theme 'zenburn t)
 
+  (require 'uniquify)
+  (setq uniquify-buffer-name-style 'forward)
+  (setq uniquify-separator "/")
+  (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
+  (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
   ;; disable flyspellmode by default for some modes
   (dolist (hook '(nxml-mode-hook))
       (add-hook hook (lambda () (flyspell-mode -1))))
@@ -123,6 +129,15 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-c a p") 'ag-project-regexp)
 
 
+  ;; enable paredit
+  (autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code."
+  t)
+  (add-hook 'emacs-lisp-mode-hook       'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook          #'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           'enable-paredit-mode)
  
 
   ;; chords
