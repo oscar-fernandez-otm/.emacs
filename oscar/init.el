@@ -38,6 +38,8 @@ If you want to switch in the same window pass a prefix argument."
   (require 'org-trello)
   (load-theme 'zenburn t)
 
+
+  (setq visible-bell nil)
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'forward)
   (setq uniquify-separator "/")
