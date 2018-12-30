@@ -11,7 +11,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults smex paredit  zenburn-theme undo-tree cider multiple-cursors expand-region iy-go-to-char key-chord ace-jump-mode multi-term ag company company-flx flx-ido projectile align-cljlet clj-refactor org-trello)
+(defvar my-packages '(better-defaults smex paredit dashboard zenburn-theme undo-tree cider multiple-cursors expand-region iy-go-to-char key-chord ace-jump-mode multi-term ag company company-flx flx-ido projectile align-cljlet clj-refactor org-trello)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)

@@ -22,6 +22,17 @@
   (define-key org-mode-map (kbd "S-<left>") nil)
   (define-key org-mode-map (kbd "S-<right>") nil))
 
+(defun dashboard-configuration ()
+  (require 'dashboard)
+  (setq dashboard-items '((recents  . 10)
+                          (projects . 10)
+                          (bookmarks . 5)
+                          (registers . 5)
+                          (agenda . 5)))
+  (setq dashboard-startup-banner 'logo)
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  (dashboard-setup-startup-hook))
+
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -149,9 +160,10 @@ If you want to switch in the same window pass a prefix argument."
   (add-hook 'clojure-mode-hook          #'paredit-mode)
   (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           'enable-paredit-mode)
- 
+
   (org-mode-configuration)
 
+  (dashboard-configuration)
   ;; chords
   (mapcar (lambda (chord)
             (key-chord-define-global (elt chord 0)
