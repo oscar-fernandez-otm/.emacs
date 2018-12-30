@@ -13,6 +13,15 @@
       (message "Opening file...")
     (message "Aborting")))
 
+(defun org-mode-configuration ()
+  (setq org-refile-targets '((nil :maxlevel . 9)
+                             (org-agenda-files :maxlevel . 9)))
+
+  (define-key org-mode-map (kbd "S-<up>") nil)
+  (define-key org-mode-map (kbd "S-<down>") nil)
+  (define-key org-mode-map (kbd "S-<left>") nil)
+  (define-key org-mode-map (kbd "S-<right>") nil))
+
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -141,6 +150,7 @@ If you want to switch in the same window pass a prefix argument."
   (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           'enable-paredit-mode)
  
+  (org-mode-configuration)
 
   ;; chords
   (mapcar (lambda (chord)
