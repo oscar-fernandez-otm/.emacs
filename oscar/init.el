@@ -15,7 +15,7 @@
 
 (defun org-mode-configuration ()
   (setq org-refile-targets '((nil :maxlevel . 9)
-                             (org-agenda-files :maxlevel . 9)))
+                             (("~/work/otm/org-mode/todo.org") :maxlevel . 9)))
 
   (define-key org-mode-map (kbd "S-<up>") nil)
   (define-key org-mode-map (kbd "S-<down>") nil)
