@@ -3,7 +3,7 @@
 (add-hook 'after-init-hook 'after-package-initializations-customizations)
 (add-hook 'after-init-hook 'lisp-customizations)
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 
