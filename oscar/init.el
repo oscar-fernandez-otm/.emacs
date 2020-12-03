@@ -58,8 +58,13 @@ If you want to switch in the same window pass a prefix argument."
   (require 'org-trello)
   (load-theme 'zenburn t)
 
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
 
   (setq visible-bell nil)
+
+
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'forward)
   (setq uniquify-separator "/")
