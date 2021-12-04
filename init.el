@@ -35,11 +35,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(css-indent-offset 2)
+ '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    (quote
-    (org-trello midje-mode
-                (cider . "melpa-stable")
-                zenburn-theme undo-tree starter-kit-ruby starter-kit-lisp starter-kit-js starter-kit-bindings projectile multi-term magit-popup key-chord iy-go-to-char git-commit flx-ido expand-region company company-flx clj-refactor align-cljlet ag ace-jump-mode))))
+    (dashboard magit org-trello midje-mode
+               (cider . "melpa-stable")
+               zenburn-theme undo-tree starter-kit-ruby starter-kit-lisp starter-kit-js starter-kit-bindings projectile multi-term magit-popup key-chord iy-go-to-char git-commit flx-ido expand-region company company-flx clj-refactor align-cljlet ag ace-jump-mode))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -47,3 +49,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'downcase-region 'disabled nil)
