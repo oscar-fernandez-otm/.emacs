@@ -137,9 +137,9 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "M-S-<up>") 'er/expand-region)
   (global-set-key (kbd "M-S-<down>") 'er/contract-region)
 
-  ;; iy-go-to-char
-  (global-set-key (kbd "C-c C-f") 'iy-go-to-char)
-  (global-set-key (kbd "C-c C-b") 'iy-go-to-char-backward)
+  ;; jump-char
+  (global-set-key (kbd "C-c C-f") 'jump-char-forward)
+  (global-set-key (kbd "C-c C-b") 'jump-char-backward)
 
   ;; multiterm-configuration
   (setq multi-term-program "/bin/bash")
@@ -173,8 +173,8 @@ If you want to switch in the same window pass a prefix argument."
   (mapcar (lambda (chord)
             (key-chord-define-global (elt chord 0)
                                      (elt chord 1)))
-          [["fj" iy-go-to-char]
-           ["fh" iy-go-to-char-backward]
+          [["fj" jump-char-forward]
+           ["fh" jump-char-backward]
            ["fk" ace-jump-mode]
            ["jw" mark-word]
            ["jz" repeat]
