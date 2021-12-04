@@ -133,7 +133,10 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-:") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c ;") 'mc/mark-all-like-this)
 
-  ;; expand region
+  ;; expand region, used cat -v to see what alt-ship-up is mapped to
+  (define-key input-decode-map "\e[1;10A" [(meta shift up)])
+  (define-key input-decode-map "\e[1;10B" [(meta shift down)])
+
   (global-set-key (kbd "M-S-<up>") 'er/expand-region)
   (global-set-key (kbd "M-S-<down>") 'er/contract-region)
 
