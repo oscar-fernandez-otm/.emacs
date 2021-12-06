@@ -36,6 +36,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(css-indent-offset 2)
+ '(org-agenda-files
+   (quote
+    ("~/work/otm/org-mode/todo.org" "~/work/otm/org-mode/databus-otm.org")))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    (quote
