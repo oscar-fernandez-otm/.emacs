@@ -109,12 +109,11 @@ If you want to switch in the same window pass a prefix argument."
   (global-set-key (kbd "C-c r") 'revert-buffer)
 
   ;; eclipse like jump of line in the middle of it
-  (define-key input-decode-map "\e[13;5u" [(control return)]) ;; some
+  (define-key input-decode-map "\e[13;5U" [(control return)]) ;; some
   ;; help for decoding sequence sent by the terminal in Linux
   (global-set-key (kbd "C-<return>") (kbd "C-e C-j"))
-  (define-key input-decode-map "\e[13;6u" [(control shift return)])
+  (define-key input-decode-map "\e[13;6U" [(control shift return)])
   (global-set-key (kbd "C-S-<return>") (kbd "C-a <return> C-p"))
-
 
   ;; recentf mode
   (recentf-mode t)
@@ -129,7 +128,9 @@ If you want to switch in the same window pass a prefix argument."
 
   ;; multiple cursors
   (global-set-key (kbd "C-c m") 'mc/edit-lines)
+  (define-key input-decode-map "\e[13;3B" [(control \;)])
   (global-set-key (kbd "C-;") 'mc/mark-next-like-this)
+  (define-key input-decode-map "\e[13;3A" [(control \:)])
   (global-set-key (kbd "C-:") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c ;") 'mc/mark-all-like-this)
 
