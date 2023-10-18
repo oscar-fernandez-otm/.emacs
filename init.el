@@ -52,3 +52,6 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'downcase-region 'disabled nil)
+
+
+(add-hook 'after-init-hook (lambda () (message (emacs-init-time))))
