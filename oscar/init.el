@@ -1,10 +1,12 @@
 (server-start)
 
-
-(fset 'remove-validate
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote (":as swaggerOCswagger/OCOC[1;3A" 0 "%d")) arg)))
-
-
+(defun pbcopy-region (start end)
+  "Copies current region into Mac's clipboard using pbcopy"
+  (interactive (let ()
+                 (unless (mark)
+		   (user-error "The mark is not set now, so there is no region"))
+                 (list (region-beginning) (region-end))))
+  (shell-command-on-region start end "pbcopy"))
 
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to \\[find-file] a recent file"
@@ -157,6 +159,10 @@ If you want to switch in the same window pass a prefix argument."
   ;; ag configuration
   (global-set-key (kbd "C-c a r") 'ag-regexp)
   (global-set-key (kbd "C-c a p") 'ag-project-regexp)
+
+
+
+  (global-set-key (kbd "C-c c") 'pbcopy-region)
 
 
   ;; enable paredit
