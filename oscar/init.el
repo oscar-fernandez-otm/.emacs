@@ -54,10 +54,28 @@ If you want to switch in the same window pass a prefix argument."
           (switch-to-buffer b)
         (switch-to-buffer-other-window b)))))
 
+(defun ap/load-doom-theme (theme)
+  "Disable active themes and load a Doom theme."
+  (interactive (list (intern (completing-read "Theme: "
+                                              (->> (custom-available-themes)
+                                                   (-map #'symbol-name)
+                                                   (--select (string-prefix-p "doom-" it)))))))
+  (ap/switch-theme theme)
+
+  (set-face-foreground 'org-indent (face-background 'default)))
+
+(defun ap/switch-theme (theme)
+  "Disable active themes and load THEME."
+  (interactive (list (intern (completing-read "Theme: "
+                                              (->> (custom-available-themes)
+                                                   (-map #'symbol-name))))))
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme theme 'no-confirm))
+
 (defun after-package-initializations-customizations ()
   (require 'iso-transl)
   (require 'org-trello)
-  (load-theme 'zenburn t)
+  (load-theme 'doom-solarized-light t)
 
   (setq ido-enable-flex-matching t)
   (setq ido-everywhere t)
