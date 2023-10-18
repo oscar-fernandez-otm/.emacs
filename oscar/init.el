@@ -54,7 +54,6 @@ If you want to switch in the same window pass a prefix argument."
 
 (defun after-package-initializations-customizations ()
   (require 'iso-transl)
-  (require 'key-chord)
   (require 'org-trello)
   (load-theme 'zenburn t)
 
@@ -82,7 +81,7 @@ If you want to switch in the same window pass a prefix argument."
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-  (yas/global-mode 1)
+  (yas-global-mode 1)
 
   (global-company-mode)
   (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
@@ -172,8 +171,21 @@ If you want to switch in the same window pass a prefix argument."
 
   (org-mode-configuration)
 
-  (dashboard-configuration)
-  ;; chords
+  (dashboard-configuration))
+
+
+(use-package key-chord
+  :init
+  :custom
+  (key-chord-one-key-delay 0.05)
+  (key-chord-two-keys-delay 0.10)
+  ;;; A 2023 release caused problems and delays. See
+  ;;; - https://github.com/emacsorphanage/key-chord/issues/6
+  ;;; - https://github.com/emacsorphanage/key-chord/issues/7
+  (key-chord-safety-interval-forward 0.1)
+  (key-chord-safety-interval-backward 0)
+  (key-chord-safety-interval-forward 0)
+  :config
   (mapcar (lambda (chord)
             (key-chord-define-global (elt chord 0)
                                      (elt chord 1)))
@@ -196,3 +208,19 @@ If you want to switch in the same window pass a prefix argument."
            ["jx" smex]
            ["jq" join-line]])
   (key-chord-mode 1))
+
+(use-package clojure-mode
+  :config (require 'flycheck-clj-kondo)
+  :bind
+  (:map clojure-mode-map
+        ("C-c l" . align-cljlet)))
+
+(use-package flycheck-clj-kondo
+  :hook (clojure-mode . flycheck-mode))
+
+;;(use-package paredit-mode)
+
+(use-package clj-refactor
+  :hook (clojure-mode . clj-refactor-mode)
+  :config
+  (cljr-add-keybindings-with-prefix "C-c j"))

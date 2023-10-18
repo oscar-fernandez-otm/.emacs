@@ -1,7 +1,6 @@
 (require 'package)
 
 (add-hook 'after-init-hook 'after-package-initializations-customizations)
-(add-hook 'after-init-hook 'lisp-customizations)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -11,7 +10,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults smex paredit dashboard zenburn-theme undo-tree cider multiple-cursors expand-region jump-char key-chord ace-jump-mode multi-term ag company company-flx flx-ido projectile align-cljlet clj-refactor org-trello magit flycheck-clj-kondo)
+(defvar my-packages '(better-defaults smex paredit dashboard zenburn-theme undo-tree cider multiple-cursors expand-region jump-char key-chord ace-jump-mode multi-term ag company company-flx flx-ido projectile align-cljlet clj-refactor org-trello magit flycheck-clj-kondo use-package)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
