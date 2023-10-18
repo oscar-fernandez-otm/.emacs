@@ -15,15 +15,6 @@
       (message "Opening file...")
     (message "Aborting")))
 
-(defun org-mode-configuration ()
-  (setq org-refile-targets '((nil :maxlevel . 9)
-                             (("~/work/otm/org-mode/todo.org") :maxlevel . 9)))
-
-  (define-key org-mode-map (kbd "S-<up>") nil)
-  (define-key org-mode-map (kbd "S-<down>") nil)
-  (define-key org-mode-map (kbd "S-<left>") nil)
-  (define-key org-mode-map (kbd "S-<right>") nil))
-
 (defun dashboard-configuration ()
   (require 'dashboard)
   (setq dashboard-items '((recents  . 10)
@@ -74,7 +65,7 @@ If you want to switch in the same window pass a prefix argument."
 
 (defun after-package-initializations-customizations ()
   (require 'iso-transl)
-  (require 'org-trello)
+
   (load-theme 'doom-solarized-light t)
 
   (setq ido-enable-flex-matching t)
@@ -193,8 +184,6 @@ If you want to switch in the same window pass a prefix argument."
   (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           'enable-paredit-mode)
 
-  (org-mode-configuration)
-
   (dashboard-configuration))
 
 
@@ -248,3 +237,14 @@ If you want to switch in the same window pass a prefix argument."
   :hook (clojure-mode . clj-refactor-mode)
   :config
   (cljr-add-keybindings-with-prefix "C-c j"))
+
+(use-package org
+  :mode ("\\.org" . org-mode)
+  :config
+  (setq org-refile-targets '((nil :maxlevel . 9) (("~/work/otm/org-mode/todo.org") :maxlevel . 9)))
+    (define-key org-mode-map (kbd "S-<up>") nil)
+    (define-key org-mode-map (kbd "S-<down>") nil)
+    (define-key org-mode-map (kbd "S-<left>") nil)
+    (define-key org-mode-map (kbd "S-<right>") nil)
+
+    (require 'org-trello))
