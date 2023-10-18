@@ -94,20 +94,7 @@ If you want to switch in the same window pass a prefix argument."
 
   (yas-global-mode 1)
 
-  (global-company-mode)
-  (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
-  (setq company-idle-delay .5)
-  (with-eval-after-load 'company
-    (company-flx-mode +1))
-
-  ;; paredit
-  (require 'paredit)
-  (define-key paredit-mode-map (kbd "C-S-<left>") 'paredit-backward-slurp-sexp)
-  (define-key paredit-mode-map (kbd "C-S-<right>") 'paredit-backward-barf-sexp)
-  (define-key paredit-mode-map (kbd "C-<left>") 'paredit-forward-barf-sexp)
-  (define-key paredit-mode-map (kbd "C-<right>") 'paredit-forward-slurp-sexp)
-
-  ;; undo-tree-mode
+   ;; undo-tree-mode
   (global-undo-tree-mode)
   (global-set-key (kbd "C--") 'undo-tree-undo)
 
@@ -132,29 +119,6 @@ If you want to switch in the same window pass a prefix argument."
 
   (global-set-key (kbd "C-x f") 'ido-recentf-open)
 
-  ;; use company mode for autocompletion
-  (global-company-mode)
-  (global-set-key (kbd "C-,") 'company-complete)
-
-  ;; multiple cursors
-  (global-set-key (kbd "C-c m") 'mc/edit-lines)
-  (define-key input-decode-map "\e[13;3B" [(control \;)])
-  (global-set-key (kbd "C-;") 'mc/mark-next-like-this)
-  (define-key input-decode-map "\e[13;3A" [(control \:)])
-  (global-set-key (kbd "C-:") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c ;") 'mc/mark-all-like-this)
-
-  ;; expand region, used cat -v to see what alt-ship-up is mapped to
-  (define-key input-decode-map "\e[1;10A" [(meta shift up)])
-  (define-key input-decode-map "\e[1;10B" [(meta shift down)])
-
-  (global-set-key (kbd "M-S-<up>") 'er/expand-region)
-  (global-set-key (kbd "M-S-<down>") 'er/contract-region)
-
-  ;; jump-char
-  (global-set-key (kbd "C-c C-f") 'jump-char-forward)
-  (global-set-key (kbd "C-c C-b") 'jump-char-backward)
-
   ;; multiterm-configuration
   (setq multi-term-program "/bin/bash")
   (setq multi-term-dedicated-select-after-open-p t)
@@ -165,24 +129,7 @@ If you want to switch in the same window pass a prefix argument."
                                   (require 'multi-term)
                                   (multi-term-dedicated-toggle)))
 
-  ;; ag configuration
-  (global-set-key (kbd "C-c a r") 'ag-regexp)
-  (global-set-key (kbd "C-c a p") 'ag-project-regexp)
-
-
-
   (global-set-key (kbd "C-c c") 'pbcopy-region)
-
-
-  ;; enable paredit
-  (autoload 'enable-paredit-mode "paredit"
-  "Turn on pseudo-structural editing of Lisp code."
-  t)
-  (add-hook 'emacs-lisp-mode-hook       'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook             'enable-paredit-mode)
-  (add-hook 'clojure-mode-hook          #'paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook           'enable-paredit-mode)
 
   (dashboard-configuration))
 
@@ -248,3 +195,60 @@ If you want to switch in the same window pass a prefix argument."
     (define-key org-mode-map (kbd "S-<right>") nil)
 
     (require 'org-trello))
+
+(use-package company
+  :config
+  (global-company-mode)
+  (setq company-idle-delay .5)
+  (company-flx-mode +1)
+  :bind
+  ("TAB" . company-indent-or-complete-common)
+  ("C-," . company-complete))
+
+(use-package paredit
+  :hook ((emacs-lisp-mode . paredit-mode)
+         (eval-expression-minibuffer-setup . paredit-mode)
+         (ielm-mode . paredit-mode)
+         (lisp-mode . paredit-mode)
+         (lisp-interaction-mode . paredit-mode)
+         (scheme-mode . paredit-mode)
+         (slime-repl-mode . paredit-mode)
+         (clojure-mode . paredit-mode)
+         (clojurescript-mode . paredit-mode)
+         (cider-repl-mode . paredit-mode)
+         (cider-mode . paredit-mode)
+         (clojure-mode . paredit-mode))
+  :bind
+  (:map paredit-mode-map
+        ("C-S-<left>"  . paredit-backward-slurp-sexp)
+        ("C-S-<right>" . paredit-backward-barf-sexp)
+        ("C-<left>"    . paredit-forward-barf-sexp)
+        ("C-<right>"   . paredit-forward-slurp-sexp)))
+
+(use-package mc-edit-lines
+  :init
+  (define-key input-decode-map "\e[13;3B" [(control \;)])
+  (define-key input-decode-map "\e[13;3A" [(control \:)])
+  :bind
+  ("C-c m" . mc/edit-lines)
+  ("C-;" . mc/mark-next-like-this)
+  ("C-:" . mc/mark-previous-like-this)
+  ("C-c ;" . mc/mark-all-like-this))
+
+(use-package expand-region
+  :init
+  (define-key input-decode-map "\e[1;10A" [(meta shift up)])
+  (define-key input-decode-map "\e[1;10B" [(meta shift down)])
+  :bind
+  ("M-S-<up>" . er/expand-region)
+  ("M-S-<down>" . er/contract-region))
+
+(use-package jump-char
+  :bind
+  ("C-c C-f" . jump-char-forward)
+  ("C-c C-b" . jump-char-backward))
+
+(use-package ag
+  :bind
+  ("C-c a r" . ag-regexp)
+  ("C-c a p" . ag-project-regexp))
