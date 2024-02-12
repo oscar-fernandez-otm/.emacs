@@ -254,6 +254,14 @@ If you want to switch in the same window pass a prefix argument."
   ("C-c a p" . ag-project-regexp))
 
 (use-package gptel
+  :config
+  (add-to-list 'gptel-directives
+               '(emacs . "You are an Emacs maven and Elisp expertliving in Emacs. Respondx concisely.")
+               t)
+  (add-to-list 'gptel-directives
+               '(command. "You translate the prompt into a valid GNU/Linux command.")
+               t)
+
   :bind
   ("C-c RET" . gptel-send)
   (:map gptel-mode-map
@@ -289,7 +297,7 @@ If you want to switch in the same window pass a prefix argument."
        "Pull thing from buffer"
        isearch-forward-thing-at-point
        :transient nil)]
-     
+
      ["Replace"
       ("q"
        "Start ‘query-replace’"
