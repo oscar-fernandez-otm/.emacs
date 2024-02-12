@@ -252,6 +252,14 @@ If you want to switch in the same window pass a prefix argument."
   :bind
   ("C-c a r" . ag-regexp)
   ("C-c a p" . ag-project-regexp))
+
+(use-package gptel
+  :bind
+  ("C-c RET" . gptel-send)
+  (:map gptel-mode-map
+        ("C-c C-c" . gptel-abort)))
+
+
 (use-package transient
   :init
   (transient-define-prefix cc/isearch-menu ()
