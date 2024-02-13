@@ -259,7 +259,7 @@ If you want to switch in the same window pass a prefix argument."
                '(emacs . "You are an Emacs maven and Elisp expertliving in Emacs. Respondx concisely.")
                t)
   (add-to-list 'gptel-directives
-               '(command. "You translate the prompt into a valid GNU/Linux command.")
+               '(command . "You translate the prompt into a valid GNU/Linux command.")
                t)
 
   :bind
