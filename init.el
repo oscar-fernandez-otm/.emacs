@@ -43,7 +43,7 @@
    (quote
     (dashboard magit org-trello midje-mode
                (cider . "melpa-stable")
-               zenburn-theme undo-tree starter-kit-ruby starter-kit-lisp starter-kit-js starter-kit-bindings projectile multi-term magit-popup key-chord iy-go-to-char git-commit flx-ido expand-region company company-flx clj-refactor align-cljlet ag ace-jump-mode))))
+               zenburn-theme undo-tree starter-kit-ruby starter-kit-lisp starter-kit-js starter-kit-bindings projectile multi-term magit-popup key-chord iy-go-to-char git-commit flx-ido expand-region company company-flx clj-refactor align-cljlet ag ace-jump-mode doom-themes))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
