@@ -89,9 +89,6 @@ If you want to switch in the same window pass a prefix argument."
 
   (electric-pair-mode +1)
 
-  (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
   (yas-global-mode 1)
 
    ;; undo-tree-mode
@@ -133,6 +130,14 @@ If you want to switch in the same window pass a prefix argument."
 
   (dashboard-configuration))
 
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  :custom
+  (projectile-globally-ignored-file-suffixes '(".~undo-tree~" ".clj#"))
+  (projectile-indexing-method 'hybrid))
 
 (use-package key-chord
   :init
