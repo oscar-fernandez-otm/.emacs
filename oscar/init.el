@@ -261,11 +261,19 @@ If you want to switch in the same window pass a prefix argument."
 (use-package gptel
   :config
   (add-to-list 'gptel-directives
-               '(emacs . "You are an Emacs maven and Elisp expertliving in Emacs. Respondx concisely.")
+               '(emacs . "You are an Emacs maven and Elisp expertliving in Emacs. Respond concisely.")
                t)
   (add-to-list 'gptel-directives
                '(command . "You translate the prompt into a valid GNU/Linux command.")
                t)
+  (add-to-list 'gptel-directives
+               '(mba . "You are a MBA working in a corporate environment, but be succint.")
+               t)
+  (add-to-list 'gptel-directives
+               '(pronunciator . "English Pronunciation Helper  I want you to act as an English RP (received pronunciation) assistant for Spanish speaking people. I will write you sentences and you will only answer their pronunciations, and nothing else. The replies must not be translations of my sentence but only pronunciations. Pronunciations should be an IPA phonetic transcription. Then for each IPA symbol in the answer write a different word that uses it. My first sentence is: I need Closure "))
+  (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
+  (gptel-make-gemini "Gemini"  :stream t :key gptel-api-key)
+  ;;(gptel-make-gemini "Gemini" :key gptel-api-key :stream t)
 
   :bind
   ("C-c RET" . gptel-send)
