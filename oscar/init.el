@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (server-start)
 
 (defun pbcopy-region (start end)

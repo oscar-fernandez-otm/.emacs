@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'package)
 
 (add-hook 'after-init-hook 'after-package-initializations-customizations)
