@@ -15,8 +15,9 @@
       (message "Opening file...")
     (message "Aborting")))
 
-(defun dashboard-configuration ()
-  (require 'dashboard)
+(use-package dashboard
+  :ensure t
+  :config
   (setq dashboard-items '((recents  . 10)
                           (projects . 10)
                           (bookmarks . 5)
@@ -25,7 +26,6 @@
   (setq dashboard-startup-banner 'logo)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   (dashboard-setup-startup-hook))
-
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -126,9 +126,7 @@ If you want to switch in the same window pass a prefix argument."
                                   (require 'multi-term)
                                   (multi-term-dedicated-toggle)))
 
-  (global-set-key (kbd "C-c c") 'pbcopy-region)
-
-  (dashboard-configuration))
+  (global-set-key (kbd "C-c c") 'pbcopy-region))
 
 (use-package projectile
   :ensure t
