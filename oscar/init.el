@@ -193,13 +193,13 @@ If you want to switch in the same window pass a prefix argument."
 (use-package org
   :mode ("\\.org" . org-mode)
   :config
-  (setq org-refile-targets '((nil :maxlevel . 9) (("~/work/otm/org-mode/todo.org") :maxlevel . 9)))
-    (define-key org-mode-map (kbd "S-<up>") nil)
-    (define-key org-mode-map (kbd "S-<down>") nil)
-    (define-key org-mode-map (kbd "S-<left>") nil)
-    (define-key org-mode-map (kbd "S-<right>") nil)
+  ;; (setq org-refile-targets '((nil :maxlevel . 9) (("~/work/otm/org-mode/todo.org") :maxlevel . 9)))
+  (define-key org-mode-map (kbd "S-<up>") nil)
+  (define-key org-mode-map (kbd "S-<down>") nil)
+  (define-key org-mode-map (kbd "S-<left>") nil)
+  (define-key org-mode-map (kbd "S-<right>") nil)
 
-    (require 'org-trello))
+  (require 'org-trello))
 
 (use-package company
   :config

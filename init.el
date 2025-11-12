@@ -37,7 +37,7 @@
  '(css-indent-offset 2)
  '(org-agenda-files
    (quote
-    ("~/work/otm/org-mode/todo.org" "~/work/otm/org-mode/databus-otm.org")))
+    ("~/work/otm/todo.org")))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    (quote
