@@ -196,9 +196,7 @@ If you want to switch in the same window pass a prefix argument."
   (define-key org-mode-map (kbd "S-<up>") nil)
   (define-key org-mode-map (kbd "S-<down>") nil)
   (define-key org-mode-map (kbd "S-<left>") nil)
-  (define-key org-mode-map (kbd "S-<right>") nil)
-
-  (require 'org-trello))
+  (define-key org-mode-map (kbd "S-<right>") nil))
 
 (use-package company
   :config
