@@ -277,7 +277,7 @@ If you want to switch in the same window pass a prefix argument."
   (:map gptel-mode-map
         ("C-c C-c" . gptel-abort)))
 
-
+(require 'transient)
 (use-package transient
   :init
   (transient-define-prefix cc/isearch-menu ()
