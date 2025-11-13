@@ -229,8 +229,8 @@ If you want to switch in the same window pass a prefix argument."
 
 (use-package mc-edit-lines
   :init
-  (define-key input-decode-map "\e[13;3B" [(control \;)])
-  (define-key input-decode-map "\e[13;3A" [(control \:)])
+  (define-key input-decode-map "\e[59;5u" [(control \;)])
+  (define-key input-decode-map "\e[58;5u" [(control \:)])
   :bind
   ("C-c m" . mc/edit-lines)
   ("C-;" . mc/mark-next-like-this)
