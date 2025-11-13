@@ -108,7 +108,7 @@ If you want to switch in the same window pass a prefix argument."
   ;; help for decoding sequence sent by the terminal in Linux
   (global-set-key (kbd "C-<return>") (kbd "C-e C-j TAB"))
   (define-key input-decode-map "\e[13;6U" [(control shift return)])
-  (global-set-key (kbd "C-S-<return>") (kbd "C-a <return> C-p"))
+  (global-set-key (kbd "C-S-<return>") (kbd "C-a <return> C-p TAB"))
 
   ;; recentf mode
   (recentf-mode t)
