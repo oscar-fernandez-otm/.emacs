@@ -28,6 +28,10 @@
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   (dashboard-setup-startup-hook))
 
+(use-package compilation
+  :config
+  (setq truncate-lines nil))
+
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
   (when l
@@ -166,6 +170,8 @@ If you want to switch in the same window pass a prefix argument."
            ["cv" back-to-indentation]
            ["vb" move-end-of-line]
            ["kw" kill-ring-save]
+           ["fj" window-toggle-side-windows]
+           ["fm" ido-display-buffer]
            ["f," ido-switch-buffer-other-window]
            ["f." ido-switch-buffer]
            ["jr" query-replace-regexp]
